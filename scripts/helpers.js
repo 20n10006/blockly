@@ -20,11 +20,6 @@ function escapeRegex(pattern) {
   return pattern.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
 }
 
-/**
- * Replaces OS-specific path with POSIX style path.
- * @param {string} target target path
- * @return {string} posix path
- */
 function posixPath(target) {
   const osSpecificSep = new RegExp(escapeRegex(path.sep), 'g');
   return target.replace(osSpecificSep, path.posix.sep);
